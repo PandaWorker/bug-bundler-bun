@@ -1,0 +1,21 @@
+{
+  "name": "bug-bundler-bun",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "start": "bun ./src/main.ts",
+    "build": "bun run build:node && bun run build:bun",
+    "build:node": "bun build --target=node --outdir=./dist/node ./src/bug.ts",
+    "build:bun": "bun build --target=bun --outdir=./dist/bun ./src/bug.ts"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "undici": "^7.16.0"
+  }
+}
